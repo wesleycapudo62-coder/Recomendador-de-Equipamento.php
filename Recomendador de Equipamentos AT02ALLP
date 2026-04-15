@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+</head>
+<body>
+
+     
+      
+                <p>Escolha o Ambiente</p>
+
+
+                <form method="POST">
+
+
+
+
+        <select name="ambiente">
+        <option value="">--Selecione--</option>
+        <option value="Residencial">Residencial</option>
+        <option value="Escritorio">Pequeno Escritorio</option>
+        <option value="Datacenter">Data Center</option>
+
+    </select>
+<br><br> 
+                 
+      
+           <input type="submit" value="Ver Recomendaçao">
+
+                </form>
+
+
+        <?php
+
+         if($_SERVER["REQUEST_METHOD"] = "POST") {
+            
+        if(!empty($_POST['ambiente'])){
+
+
+            $ambiente = $_POST['ambiente'];
+
+
+            switch($ambiente){
+
+            case "Residencial":
+            echo "<h3>Equipamento:</h3>";
+            echo "Roteador Wireless (SOHO)<br>";
+            echo "Para uso em casa";
+            break;
+
+            case "Escritorio":
+            echo "<h3>Equipamento:</h3>";
+            echo "Switch Gerenciavel de 24 portas <br>";
+            echo "Ideal para seu escritorio";
+            break;
+
+
+            case "Datacenter":
+            echo "<h3>Equipamento:</h3>";
+            echo "Roteador de Borda + Switch Layer 3<br>";
+            echo "Alta capacidade";
+            break;
+
+
+            default:
+            echo "Ambiente nao reconhecido";
+
+
+
+            }
+
+
+        } else {
+        echo "Selecione uma opcao";
+        }
+         }
+         
+
+         ?>
